@@ -1,19 +1,20 @@
 package com.li.cloudpicturebackend.model.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
+import java.io.Serializable;
 import java.util.Date;
+
 import lombok.Data;
 
 /**
  * 用户
+ *
  * @TableName user
  */
-@TableName(value ="user")
+@TableName(value = "user")
 @Data
-public class User {
+public class User implements Serializable {
     /**
      * id
      */
@@ -68,6 +69,10 @@ public class User {
     /**
      * 是否删除
      */
-    @TableLogic
+    @TableLogic(delval = "1", value = "0")
     private Integer isDelete;
+
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 }

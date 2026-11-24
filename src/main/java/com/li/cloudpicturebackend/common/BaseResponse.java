@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 /**
  * 全局响应封装类
+ *
  * @param <T>
  */
 @Data
@@ -27,10 +28,10 @@ public class BaseResponse<T> implements Serializable {
     }
 
     public BaseResponse(int code, T data) {
-        this(code,data,"");
+        this(code, data, "");
     }
 
     public BaseResponse(ErrorCode errorCode) {
-        this(errorCode.getCode(),null,errorCode.getMessage());
+        this(errorCode.getCode(), null, errorCode.getMessage());
     }
 }
